@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Мясная Лавка — магазин мяса</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <div class="topbar">
+                <a class="brand" href="#top">
+                    <div class="logo" aria-hidden="true">
+                        <!-- SVG: steak -->
+                        <svg class="icon xl" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M7.2 7.2c2.2-2.2 6.3-3.7 10-1.4 3.3 2 3.4 6.7.3 9.9l-5.1 5.1c-2.4 2.4-6.4 2.4-8.8 0-2.4-2.4-2.4-6.4 0-8.8l3.6-3.6Z"
+                                stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9.6 9.6c1.2-1.2 3.8-2.2 6.1-.8 2 1.2 2 3.9.1 5.8l-3.3 3.3"
+                                stroke="rgba(255,77,77,.95)" stroke-width="1.6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <circle cx="7.2" cy="16.8" r="1.6" fill="rgba(255,154,61,.95)" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1>Мясная Лавка</h1>
+                        <small>Свежие отрубы • фарш • полуфабрикаты</small>
+                    </div>
+                </a>
+
+                <div class="search" role="search" aria-label="Поиск">
+                    <!-- SVG: search -->
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="rgba(255,255,255,.85)"
+                            stroke-width="1.6" />
+                        <path d="M16.6 16.6 21 21" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                            stroke-linecap="round" />
+                    </svg>
+                    <input id="q" type="search" placeholder="Поиск: стейк, фарш, котлеты…" autocomplete="off" />
+                </div>
+
+                <div class="actions">
+                    <a class="btn ghost" href="#catalog">
+                        <!-- SVG: grid -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"
+                                stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linejoin="round" />
+                        </svg>
+                        Каталог
+                    </a>
+
+                    <button class="btn primary cartBtn" id="openCart">
+                        <!-- SVG: cart -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6.5 6h14l-1.6 8.5H8.2L6.5 6Z" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                                stroke-linejoin="round" />
+                            <path d="M6.5 6 5.8 3.8H3.5" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                            <circle cx="9" cy="19" r="1.4" fill="rgba(255,255,255,.9)" />
+                            <circle cx="18" cy="19" r="1.4" fill="rgba(255,255,255,.9)" />
+                        </svg>
+                        Корзина
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <div class="wrap">
+            <section class="hero">
+                <div class="heroGrid">
+                    <div class="heroCard">
+                        <div class="heroMain">
+                            <div>
+                                <div class="pill">
+                                    <!-- SVG: lightning -->
+                                    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z" stroke="rgba(255,255,255,.85)"
+                                            stroke-width="1.6" stroke-linejoin="round" />
+                                    </svg>
+                                    Доставка по городу • самовывоз
+                                </div>
+                                <h2 class="heroTitle">Мясо, которое хочется жарить 🔥</h2>
+                                <p class="heroText">
+                                    Выбирайте по категориям, добавляйте в корзину, оформляйте заказ.
+                                    Каталог сделан в 3 уровня: <b>Раздел → Подраздел → Товар</b>.
+                                </p>
+                                <div style="display:flex; gap:10px; flex-wrap:wrap">
+                                    <a class="btn primary" href="#catalog">
+                                        <!-- SVG: arrow -->
+                                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M5 12h12" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                                                stroke-linecap="round" />
+                                            <path d="M13 6l6 6-6 6" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        Открыть каталог
+                                    </a>
+                                    <a class="btn" href="#contacts">
+                                        <!-- SVG: map pin -->
+                                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M12 22s7-4.5 7-12a7 7 0 1 0-14 0c0 7.5 7 12 7 12Z"
+                                                stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                                stroke-linejoin="round" />
+                                            <circle cx="12" cy="10" r="2.3" fill="rgba(255,77,77,.95)" />
+                                        </svg>
+                                        Контакты и карта
+                                    </a>
+                                </div>
+
+                                <div class="heroKpis">
+                                    <div class="kpi">
+                                        <b>Ежедневная поставка</b>
+                                        <span>охлаждённое, не “вчерашнее”</span>
+                                    </div>
+                                    <div class="kpi">
+                                        <b>Нарежем как нужно</b>
+                                        <span>стейки / кубики / фарш</span>
+                                    </div>
+                                    <div class="kpi">
+                                        <b>Оплата удобно</b>
+                                        <span>онлайн / при получении</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="heroCard sideCard">
+                        <h3 class="sideTitle">Как пользоваться</h3>
+                        <div class="sideList">
+                            <div class="sideItem">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 7h16M4 12h16M4 17h10" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <div>
+                                    <b>1) Выберите раздел</b>
+                                    <p>Например: Говядина → Стейки → Рибай</p>
+                                </div>
+                            </div>
+                            <div class="sideItem">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 12h12" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                    <path d="M12 6v12" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <div>
+                                    <b>2) Добавьте в корзину</b>
+                                    <p>Можно менять количество прямо в карточке</p>
+                                </div>
+                            </div>
+                            <div class="sideItem">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M20 7 9 18l-5-5" stroke="rgba(51,209,122,.95)" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div>
+                                    <b>3) Оформление</b>
+                                    <p>В корзине есть итоги и “оформить заказ” (демо)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+                            <span class="pill">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"
+                                        stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linejoin="round" />
+                                    <path d="M12 9.3a2.3 2.3 0 1 0 0 4.6 2.3 2.3 0 0 0 0-4.6Z"
+                                        fill="rgba(255,154,61,.95)" />
+                                </svg>
+                                Вставьте вашу точку 2ГИС
+                            </span>
+                            <span class="pill">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7 8h10M7 12h10M7 16h6" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                    <path d="M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"
+                                        stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linejoin="round" />
+                                </svg>
+                                Отзывы с ссылками на 2ГИС
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="catalog">
+                <div class="sectionHead">
+                    <div>
+                        <h2>Каталог</h2>
+                    </div>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap">
+                        <button class="btn" id="clearFilters">
+                            <!-- SVG: reset -->
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M3 12a9 9 0 1 0 3-6.7" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                                <path d="M3 4v5h5" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Сброс
+                        </button>
+                    </div>
+                </div>
+
+                <div class="catalog">
+                    <div class="panel" aria-label="Выбор разделов">
+                        <div class="panelHead">
+                            <div class="titleRow">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 6h16M4 12h10M4 18h16" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <div>
+                                    <h3>Разделы → Подразделы</h3>
+                                    <small id="crumbs">Выберите раздел</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panelBody">
+                            <div class="list" id="level1"></div>
+                            <div style="height:10px"></div>
+                            <div class="list" id="level2"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel" aria-label="Товары">
+                        <div class="panelHead">
+                            <div class="titleRow">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7 7h10v10H7V7Z" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linejoin="round" />
+                                    <path d="M4 4h16v16H4V4Z" stroke="rgba(255,255,255,.35)" stroke-width="1.6"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <div>
+                                    <h3>Товары</h3>
+                                    <small id="productsMeta">—</small>
+                                </div>
+                            </div>
+                            <button class="btn" id="openCart2">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6.5 6h14l-1.6 8.5H8.2L6.5 6Z" stroke="rgba(255,255,255,.9)"
+                                        stroke-width="1.6" stroke-linejoin="round" />
+                                    <path d="M6.5 6 5.8 3.8H3.5" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                Корзина
+                            </button>
+                        </div>
+                        <div class="panelBody">
+                            <div class="products" id="products"></div>
+                            <div id="noProducts" class="empty" style="display:none; margin-top:10px;">
+                                Ничего не найдено. Попробуйте очистить поиск или выберите другой подраздел.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reviews">
+                <div class="sectionHead">
+                    <div>
+                        <h2>Отзывы</h2>
+                    </div>
+
+                    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                        <a class="btn" href="https://2gis.ru/novosibirsk/firm/70000001061830407/tab/reviews"
+                            target="_blank" rel="noreferrer">
+                            <!-- SVG: link -->
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M10 14a5 5 0 0 0 7.1 0l2.9-2.9a5 5 0 0 0-7.1-7.1L11.6 5"
+                                    stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" />
+                                <path d="M14 10a5 5 0 0 0-7.1 0L4 12.9a5 5 0 1 0 7.1 7.1L12.4 19"
+                                    stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linecap="round" />
+                            </svg>
+                            Открыть отзывы в 2ГИС
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reviewsCarousel">
+                    <button class="btn ghost nav" id="revPrev" aria-label="Предыдущий отзыв">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M15 6l-6 6 6 6" stroke="rgba(255,255,255,.85)" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Назад
+                    </button>
+
+                    <div class="trackWrap" id="revTrackWrap" aria-label="Карусель отзывов">
+                        <div class="track" id="revTrack"></div>
+                    </div>
+
+                    <button class="btn ghost nav" id="revNext" aria-label="Следующий отзыв">
+                        Вперёд
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,.85)" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="dots" id="revDots" aria-label="Индикаторы карусели"></div>
+            </section>
+
+
+            <section id="contacts">
+                <div class="sectionHead">
+                    <div>
+                        <h2>Контакты</h2>
+                    </div>
+                    <a class="btn" href="#top">
+                        <!-- SVG: up -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 5v14" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                            <path d="M6 11l6-6 6 6" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Наверх
+                    </a>
+                </div>
+
+                <div class="contactCard">
+                    <div class="contactInner">
+                        <div class="contactInfo">
+                            <h3>Мясная Лавка</h3>
+
+                            <div class="line">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 22s7-4.5 7-12a7 7 0 1 0-14 0c0 7.5 7 12 7 12Z"
+                                        stroke="rgba(255,255,255,.85)" stroke-width="1.6" stroke-linejoin="round" />
+                                    <circle cx="12" cy="10" r="2.3" fill="rgba(255,154,61,.95)" />
+                                </svg>
+                                <div>
+                                    <b>Адрес</b>
+                                    <span>г. Новосибирск, ул. Гаранина, 29</span>
+                                    <span style="margin-top:6px">
+                                        <a href="https://2gis.ru/novosibirsk/firm/70000001061830407/82.969547%2C55.026059?m=82.96958%2C55.026025%2F19.67"
+                                            target="_blank" rel="noreferrer"
+                                            style="color:#ffd1d1; text-decoration:none;">
+                                            Открыть в 2ГИС
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="line">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M7 3h10v18H7V3Z" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 18h4" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <div>
+                                    <b>Телефон</b>
+                                    <span><a href="tel:+70000000000" style="color:inherit; text-decoration:none;">+7
+                                            (000) 000-00-00</a></span>
+                                    <span style="margin-top:6px">Ежедневно: 09:00–21:00</span>
+                                </div>
+                            </div>
+
+                            <div class="line">
+                                <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 4h16v16H4V4Z" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linejoin="round" />
+                                    <path d="M7 12h10" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                    <path d="M12 7v10" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <div>
+                                    <b>Соцсети</b>
+                                    <span><a href="#" style="color:inherit">VK</a> • <a href="#"
+                                            style="color:inherit">Telegram</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mapBox" aria-label="Карта 2ГИС">
+                            <!--
+              ВАЖНО:
+              1) Замените src на ваш виджет 2ГИС (организация/точка).
+              2) Самый простой способ: в 2ГИС открыть вашу точку → Поделиться → Встроить на сайт (iframe).
+            -->
+                            <a class="dg-widget-link"
+                                href="http://2gis.ru/novosibirsk/firm/70000001061830407/center/82.96954393386842,55.026509305342614/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
+                                на карте Новосибирска</a>
+                            <div class="dg-widget-link"><a
+                                    href="http://2gis.ru/novosibirsk/firm/70000001061830407/photos/70000001061830407/center/82.96954393386842,55.026509305342614/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
+                                    компании</a></div>
+                            <div class="dg-widget-link"><a
+                                    href="http://2gis.ru/novosibirsk/center/82.969547,55.026059/zoom/16/routeTab/rsType/bus/to/82.969547,55.026059╎Мясной магазин?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
+                                    проезд до Мясной магазин</a></div>
+                            <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                            <script
+                                charset="utf-8">new DGWidgetLoader({ "width": 640, "height": 600, "borderColor": "#a3a3a3", "pos": { "lat": 55.026509305342614, "lon": 82.96954393386842, "zoom": 16 }, "opt": { "city": "novosibirsk" }, "org": [{ "id": "70000001061830407" }] });</script>
+                            <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует
+                                JavaScript. Включите его в настройках вашего браузера.</noscript>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="wrap">
+                    <div class="foot">
+                        <div>
+                            <div style="margin-top:10px; display:flex; gap:12px; flex-wrap:wrap;">
+                                <a href="privacy.html"
+                                    style="color:inherit; text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25);">
+                                    Политика конфиденциальности
+                                </a>
+                                <a href="offer.html"
+                                    style="color:inherit; text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25);">
+                                    Публичная оферта
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="modalBack" id="cartModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-label="Корзина">
+            <div class="modalHead">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <svg class="icon lg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6.5 6h14l-1.6 8.5H8.2L6.5 6Z" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                            stroke-linejoin="round" />
+                        <path d="M6.5 6 5.8 3.8H3.5" stroke="rgba(255,255,255,.9)" stroke-width="1.6"
+                            stroke-linecap="round" />
+                    </svg>
+                    <h3>Корзина</h3>
+                    <span class="pill" id="cartHint">—</span>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <button class="btn" id="clearCart">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 7h16" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                stroke-linecap="round" />
+                            <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="rgba(255,255,255,.85)"
+                                stroke-width="1.6" stroke-linejoin="round" />
+                            <path d="M7 7l1 14h8l1-14" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                                stroke-linejoin="round" />
+                        </svg>
+                        Очистить
+                    </button>
+                    <button class="btn primary" id="closeCart">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M18 6 6 18M6 6l12 12" stroke="rgba(255,255,255,.9)" stroke-width="1.8"
+                                stroke-linecap="round" />
+                        </svg>
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+
+            <div class="modalBody">
+                <div class="cartGrid">
+                    <div>
+                        <div class="cartList" id="cartItems"></div>
+                        <div id="cartEmpty" class="empty" style="display:none;">
+                            Корзина пустая. Вернитесь в каталог и добавьте товары.
+                        </div>
+                    </div>
+
+                    <aside class="cartAside">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <b>Итого</b>
+                        </div>
+
+                        <div class="totals">
+                            <div class="r"><span>Товары</span><strong id="sumItems">0 ₽</strong></div>
+                            <div class="r"><span>Доставка</span><strong id="sumDelivery">0 ₽</strong></div>
+                            <div class="r" style="border-top:1px dashed rgba(38,48,73,.7); padding-top:8px;">
+                                <span style="color:var(--text); font-weight:700;">К оплате</span>
+                                <strong id="sumTotal">0 ₽</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn primary" id="checkout" style="width:100%; justify-content:center;">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M20 7 9 18l-5-5" stroke="rgba(255,255,255,.9)" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Оформить заказ
+                        </button>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
