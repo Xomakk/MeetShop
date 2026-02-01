@@ -212,12 +212,6 @@
         padding: 22px 0 10px;
     }
 
-    .heroGrid {
-        display: grid;
-        grid-template-columns: 1.25fr .75fr;
-        gap: 16px;
-    }
-
     .heroCard {
         border: 1px solid var(--line);
         background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01));
